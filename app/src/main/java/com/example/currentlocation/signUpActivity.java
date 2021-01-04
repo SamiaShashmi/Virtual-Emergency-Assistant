@@ -108,12 +108,6 @@ public class signUpActivity extends AppCompatActivity {
         //getLatLon();
         //getLat();
         //getLon();
-
-        User user= new User(fullname,dateofbirth,mobileNumber,gender,usertype,username,email2,
-                password2,latitude,longitude,eCon1,eCon2);
-        reference.child(username).setValue(user);
-        Toast.makeText(getApplicationContext(),"Registered",Toast.LENGTH_LONG).show();
-
         if(email2.isEmpty())
         {
             signUpEmailEditText.setError("Enter an email Address");
@@ -164,6 +158,14 @@ public class signUpActivity extends AppCompatActivity {
             signUpPasswordEditText.requestFocus();
             return;
         }
+
+        User user= new User(fullname,dateofbirth,mobileNumber,gender,usertype,username,email2,
+                password2,latitude,longitude,eCon1,eCon2);
+        reference.child(username).setValue(user);
+
+
+
+        Toast.makeText(getApplicationContext(),"Registered",Toast.LENGTH_LONG).show();
         progressBar.setVisibility(View.VISIBLE);
         startActivity(new Intent(signUpActivity.this,MainActivity.class));
     }
@@ -182,7 +184,6 @@ public class signUpActivity extends AppCompatActivity {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-
         fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
             @Override
             public void onComplete(@NonNull Task<Location> task) {
@@ -193,23 +194,15 @@ public class signUpActivity extends AppCompatActivity {
                         List<Address> addresses = geocoder.getFromLocation(
                                 location.getLatitude(), location.getLongitude(), 1
                         );
-
-
                         String phoneNumber = "99999";
                           latitude = String.valueOf(addresses.get(0).getLatitude());
                           longitude = String.valueOf(addresses.get(0).getLongitude());
-
-
-
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }
             }
         });
-
-
     }*/
     public void getLat() {
         ActivityCompat.requestPermissions(signUpActivity.this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);

@@ -56,6 +56,10 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
     Toolbar toolbar;
     TextView phone_Call;
     int count;
+    FirebaseDatabase rootnode;
+    DatabaseReference reference;
+    String latitude = "";
+    String longitude = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +80,8 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
 
 
 
+
+
         Button emergencyButton = (Button) findViewById(R.id.button);
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
         emergencyButton.setOnClickListener(new View.OnClickListener() {
@@ -85,6 +91,44 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
                         "Alert Sent", Toast.LENGTH_SHORT).show();
                 ActivityCompat.requestPermissions(emergencyButton.this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
                 ActivityCompat.requestPermissions(emergencyButton.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
+
+               /* if (ActivityCompat.checkSelfPermission(emergencyButton.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(emergencyButton.this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    // TODO: Consider calling
+                    //    ActivityCompat#requestPermissions
+                    // here to request the missing permissions, and then overriding
+                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                    //                                          int[] grantResults)
+                    // to handle the case where the user grants the permission. See the documentation
+                    // for ActivityCompat#requestPermissions for more details.
+                    return;
+                }
+
+                fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Location> task) {
+                        Location location = task.getResult();
+                        if(location != null) {
+                            try {
+                                Geocoder geocoder = new Geocoder(emergencyButton.this, Locale.getDefault());
+                                List<Address> addresses = geocoder.getFromLocation(
+                                        location.getLatitude(), location.getLongitude(), 1
+                                );
+                                latitude = latitude +   addresses.get(0).getLatitude();
+                                longitude = longitude + addresses.get(0).getLongitude();
+
+
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }
+                });
+
+
+                MapData mapData = new MapData(latitude, longitude);
+                reference.child(latitude).setValue(mapData);*/
+
                 getLocation();
             }
         });
@@ -170,8 +214,6 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
                                                         "\nLongitude = " + addresses.get(0).getLongitude() + link;
                                                 SmsManager smsManager = SmsManager.getDefault();
                                                 smsManager.sendTextMessage(phoneNumber, null, message, null, null);
-
-
                                             }
                                             }
                                     }
@@ -274,7 +316,6 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
                 if(KeyEvent.ACTION_UP == action)
                 {
                     count++;
-
                     if(count == 3)
                     {
                         ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
@@ -295,10 +336,8 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
                         SmsManager smsManager = SmsManager.getDefault();
                         smsManager.sendTextMessage(phoneNumber, null, message, null, null);
                     }
-
                 }
             }
-
         }
         return super.dispatchKeyEvent(event);
     }*/

@@ -34,13 +34,13 @@ public class MainActivity extends AppCompatActivity  {
     private ProgressBar progressBar;
     private EditText passwordEditText;
     private EditText userEditText;
-    private FirebaseAuth mauth;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mauth = FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         signInEmailEditText = findViewById(R.id.signInUNameEditTextID);
         signInPasswordEditText=findViewById(R.id.signInPasswordEditTextID);
         signUpTextView=findViewById(R.id.SignUpTextViewID);
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity  {
     protected void onStart() {
 
         super.onStart();
-        FirebaseUser muser = mauth.getCurrentUser();
+        FirebaseUser muser = mAuth.getCurrentUser();
         if(muser != null)
         {
             startActivity(new Intent(MainActivity.this, emergencyButton.class));

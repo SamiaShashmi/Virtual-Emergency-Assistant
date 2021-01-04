@@ -1,18 +1,23 @@
 package com.example.currentlocation;
 
 public class MapData {
-    private final double lat;
-    private final double lon;
+    String lat;
+    String lon;
 
-    public MapData(double lat, double lon){
+    public MapData(String lat, String lon){
         this.lat = lat;
         this.lon = lon;
     }
+    public MapData()
+    {
+        this.lat = "";
+        this.lon = "";
+    }
 
-    public double getLat(){
+    public String getLat(){
         return this.lat;
     }
-    public double getLon(){
+    public String getLon(){
         return  this.lon;
     }
 

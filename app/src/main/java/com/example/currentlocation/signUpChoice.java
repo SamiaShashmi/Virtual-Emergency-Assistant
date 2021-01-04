@@ -22,35 +22,9 @@ public class signUpChoice extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                radioGroup = (RadioGroup) findViewById(R.id.usertyperadio);
-                int selected = radioGroup.getCheckedRadioButtonId();
-                radioButton = (RadioButton)findViewById(selected);
-                /*radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-                {
-                    public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        switch(checkedId){
-                            case R.id.userradio:
-                                // do operations specific to this selection
-                                startActivity(new Intent(signUpChoice.this,signUpActivity.class));
-                                break;
-                            case R.id.volunteerradio:
-                                // do operations specific to this selection
-                                startActivity(new Intent(signUpChoice.this,volunteerSignUP.class));
-                                break;
+                RadioButton user = findViewById(R.id.userradio);
+                RadioButton volunteer = findViewById(R.id.volunteerradioid);
 
-                        }
-                    }
-                });*/
-                if(radioButton.getText() == "User")
-                {
-                    startActivity(new Intent(signUpChoice.this, signUpActivity.class));
-                }
-                else
-                {
-                    //startActivity(new Intent(signUpChoice.this, volunteerSignUP.class));
-                    Toast.makeText(signUpChoice.this,
-                            radioButton.getText(), Toast.LENGTH_SHORT).show();
-                }
             }
         });
     }

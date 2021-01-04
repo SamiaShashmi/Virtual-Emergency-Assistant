@@ -94,9 +94,42 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng Uttara = new LatLng(23.866767, 90.403685);
         LatLng Mirpur = new LatLng(23.8223, 90.3654);
         LatLng Mohammadpur = new LatLng(23.7660, 90.3586);
-        LatLng Dhanmondi = new LatLng(23.745374, 90.385246);
+        LatLng Dhanmondi = new LatLng(23.745374, 90.3852461);
         LatLng Banani = new LatLng(23.7911968, 90.402110);
 
+
+        /*DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Location");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    MapData mapData = snapshot.getValue(MapData.class);
+                    double latd = Double.parseDouble(mapData.getLat());
+                    double lond = Double.parseDouble(mapData.getLon());
+                    LatLng newLoc = new LatLng(latd,lond);
+                    if(SphericalUtil.computeDistanceBetween(Uttara, newLoc) < 2000) {
+                        uttaraCount++;
+                    }else if (SphericalUtil.computeDistanceBetween(Banani, newLoc) < 2000){
+                        bananiCount++;
+                    }else if (SphericalUtil.computeDistanceBetween(Mirpur, newLoc) < 2000){
+                        mirpurCount++;
+                    }else if (SphericalUtil.computeDistanceBetween(Mohammadpur, newLoc) < 2000){
+                        mohammadpurCount++;
+                    }
+                    else if (SphericalUtil.computeDistanceBetween(Dhanmondi, newLoc) < 2000){
+                        dhanmondiCount++;
+                    }
+                    mMap.addMarker(
+                            new MarkerOptions()
+                                    .position(newLoc)
+                                    .title("new place")
+                    );
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });*/
         LatLng NewPlace[] = new LatLng[3];
         NewPlace[0] = new LatLng(23.8637, 90.4028);
         NewPlace[1] = new LatLng(23.8732, 90.4089);
@@ -135,7 +168,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Circle circle1 = mMap.addCircle(
                 new CircleOptions()
                         .center(Uttara)
-                        .radius(uttaraCount * 1000)
+                        .radius(2000)
                         .strokeWidth(2f)
                         .strokeColor(Color.argb(70, 60*(uttaraCount), 250, 0))
                         .fillColor(Color.argb(90, 60*(uttaraCount), 250, 0))
@@ -153,7 +186,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Circle circle2 = mMap.addCircle(
                 new CircleOptions()
                         .center(Banani)
-                        .radius((bananiCount) * 1000)
+                        .radius(2000)
                         .strokeWidth(2f)
                         .strokeColor(Color.argb(70, 60*(bananiCount), 250, 0))
                         .fillColor(Color.argb(90, 60*(bananiCount), 250, 0))
@@ -162,7 +195,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
 
-        /*mMap.addMarker(
+        mMap.addMarker(
                 new MarkerOptions()
                         .position(Mohammadpur)
                         .title("Mohammadpur")
@@ -211,6 +244,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .strokeColor(Color.argb(70, 250, 170, 0))
                         .fillColor(Color.argb(80, 250, 170, 0))
         );
-        circle5.setVisible(true);*/
+        circle5.setVisible(true);
     }
 }
