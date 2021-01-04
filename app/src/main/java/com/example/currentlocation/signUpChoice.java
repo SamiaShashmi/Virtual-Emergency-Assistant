@@ -24,7 +24,12 @@ public class signUpChoice extends AppCompatActivity {
             public void onClick(View v) {
                 RadioButton user = findViewById(R.id.userradio);
                 RadioButton volunteer = findViewById(R.id.volunteerradioid);
-
+                if (user.isChecked()){
+                    startActivity(new Intent(signUpChoice.this,signUpActivity.class));
+                }
+                else{
+                    startActivity(new Intent(signUpChoice.this,volunteerSignUP.class));
+                }
             }
         });
     }

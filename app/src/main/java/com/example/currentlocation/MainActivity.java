@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void openSignInActivity(View view) {
-        startActivity(new Intent(MainActivity.this, signUpActivity.class));
+        startActivity(new Intent(MainActivity.this, signUpChoice.class));
 
     }
 
