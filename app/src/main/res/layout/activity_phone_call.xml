@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer"
+    android:background="@color/background"
+    tools:context=".MainActivity"
+    android:layout_gravity="center"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            layout="@layout/phone_call_toolbar"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:text="Law Enforcement"
+        android:id="@+id/lawEnforcement"
+        android:onClick="phoneCall"
+        android:textColor="@color/paste"
+        android:fontFamily="@font/contrail_one"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="90dp"
+        android:text="Emergency Contact 1"
+        android:textColor="@color/paste"
+        android:onClick="phoneCall1"
+        android:fontFamily="@font/contrail_one"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="120dp"
+        android:text="Emergency Contact 2"
+        android:textColor="@color/paste"
+        android:fontFamily="@font/contrail_one"
+        android:onClick="phoneCall2"/>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
