@@ -76,18 +76,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Location");
 
-        reference.child("crimeloc1").setValue(new MapData(23.8637, 90.4028));
-        reference.child("crimeloc2").setValue(new MapData(23.8732, 90.4089));
-        reference.child("crimeloc3").setValue(new MapData(23.7952, 90.4059));
-        reference.child("crimeloc4").setValue(new MapData(23.74784, 90.38541));
-        reference.child("crimeloc5").setValue(new MapData(23.76962, 90.36034));
-        reference.child("crimeloc6").setValue(new MapData(23.86369, 90.4029));
-        reference.child("crimeloc7").setValue(new MapData(23.8733, 90.4090));
-        reference.child("crimeloc8").setValue(new MapData(23.79521, 90.4060));
-        reference.child("crimeloc9").setValue(new MapData(23.7951, 90.4059));
-        reference.child("crimeloc10").setValue(new MapData(23.795109, 90.4059009));
-        reference.child("crimeloc11").setValue(new MapData(23.8731, 90.4088));
-        reference.child("crimeloc12").setValue(new MapData(23.76964, 90.36036));
+//        reference.child("crimeloc1").setValue(new MapData(23.8637, 90.4028));
+//        reference.child("crimeloc2").setValue(new MapData(23.8732, 90.4089));
+//        reference.child("crimeloc3").setValue(new MapData(23.7952, 90.4059));
+//        reference.child("crimeloc4").setValue(new MapData(23.74784, 90.38541));
+//        reference.child("crimeloc5").setValue(new MapData(23.76962, 90.36034));
 
 
         reference.addValueEventListener(new ValueEventListener() {

