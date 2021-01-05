@@ -2,6 +2,7 @@ package com.example.currentlocation;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -58,6 +59,14 @@ public class MainActivity extends AppCompatActivity  {
         {
             startActivity(new Intent(MainActivity.this, emergencyButton.class));
         }
+    }
+    @Override
+    public void onBackPressed(){
+       Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+
     }
     public void userLogin(View view) {
 
