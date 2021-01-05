@@ -275,9 +275,8 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
                 startActivity(intent2);
                 break;
             case R.id.logout:
-                /*Intent intent3 = new Intent(emergencyButton.this, MainActivity.class);
-                startActivity((intent3));*/
-                super.onBackPressed();
+                Intent intent4 = new Intent(emergencyButton.this, MainActivity.class);
+                startActivity((intent4));
                 break;
         }
         //drawLayout.closeDrawer(GravityCompat.START);

@@ -213,12 +213,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             );
         }
 
-        mMap.addMarker(
-                new MarkerOptions()
-                        .position(Uttara)
-                        .title("Uttara")
-                        .snippet("Crime Index: 70")
-        );
+//        mMap.addMarker(
+//                new MarkerOptions()
+//                        .position(Uttara)
+//                        .title("Uttara")
+//                        .snippet("Crime Index: 70")
+//        );
 
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Uttara, 12f));
         Circle circle1 = mMap.addCircle(
@@ -232,12 +232,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         circle1.setVisible(true);
 
 
-        mMap.addMarker(
-                new MarkerOptions()
-                        .position(Banani)
-                        .title("Banani")
-                        .snippet("Crime Index: 10")
-        );
+//        mMap.addMarker(
+//                new MarkerOptions()
+//                        .position(Banani)
+//                        .title("Banani")
+//                        .snippet("Crime Index: 10")
+//        );
 //        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Banani, 12f));
         Circle circle2 = mMap.addCircle(
                 new CircleOptions()

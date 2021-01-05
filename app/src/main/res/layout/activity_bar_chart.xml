@@ -17,7 +17,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:background="#00cfcc"
+        android:background="#303030"
         tools:ignore="MissingClass" />
 
     <Button
@@ -30,7 +30,10 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="127dp"
         android:layout_marginTop="10dp"
+        android:backgroundTint="@color/paste"
         android:layout_marginEnd="127dp"
+        android:textColor="@color/background"
+        android:fontFamily="@font/contrail_one"
         android:text="Refresh Graph" />
 
 </RelativeLayout>

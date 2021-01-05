@@ -33,7 +33,7 @@ public class volunteerProfile extends AppCompatActivity {
     }
     public void backActivity(View view)
     {
-        startActivity(new Intent(volunteerProfile.this,emergencyButton.class));
+        startActivity(new Intent(volunteerProfile.this,volunteer_menu.class));
     }
     public void showProfile()
     {
