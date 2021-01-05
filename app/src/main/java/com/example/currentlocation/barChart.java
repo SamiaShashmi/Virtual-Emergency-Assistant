@@ -10,7 +10,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-//import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,28 +33,27 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 
 public class barChart extends AppCompatActivity {
-    /* EditText xValue,yValue;
-     Button InsertBtn;
-     BarChart barChart;
-     FirebaseDatabase firebaseDatabase;
-     DatabaseReference myRef;
-     //    ArrayList<IBarDataSet> iBarDataSets = new ArrayList<>();
-     BarData barData;
-     @SuppressLint("WrongViewCast")*/
+    EditText xValue,yValue;
+    Button InsertBtn;
+    BarChart barChart;
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference myRef;
+    //    ArrayList<IBarDataSet> iBarDataSets = new ArrayList<>();
+    BarData barData;
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_bar_chart;
 //        xValue=findViewById(R.id.xco);
 //        yValue=findViewById(R.id.yco);
-       /* InsertBtn=findViewById(R.id.button2);
+        InsertBtn=findViewById(R.id.button2);
         barChart=findViewById(R.id.graph);
         firebaseDatabase = FirebaseDatabase.getInstance();
         myRef = firebaseDatabase.getReference("ChartValues");
-        insertData();*/
+        insertData();
     }
-}
-/*
+
     private void insertData() {
         InsertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,4 +115,4 @@ public class barChart extends AppCompatActivity {
         barChart.setClickable(false);
         barChart.invalidate();
     }
-}*/
+}

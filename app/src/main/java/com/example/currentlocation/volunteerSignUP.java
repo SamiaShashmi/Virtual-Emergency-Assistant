@@ -43,9 +43,11 @@ public class volunteerSignUP extends AppCompatActivity {
     private RadioButton radiobutton1;
     private RadioGroup radiogroup2;
     private RadioButton radiobutton2;
+    private EditText emergencyContact1;
+    private EditText emergencyContact2;
     private ProgressBar progressBar;
-    private String latitude = "23.7453736";
-    private String longitude = "90.38524609999999";
+    private String latitude/* = "23.7453736"*/;
+    private String longitude/* = "90.38524609999999"*/;
     FirebaseDatabase rootnode;
     DatabaseReference reference;
     FusedLocationProviderClient fusedLocationProviderClient;
@@ -54,19 +56,21 @@ public class volunteerSignUP extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_volunteer_sign_u_p);
+        setContentView(R.layout.activity_sign_up);
         progressBar = findViewById(R.id.progressBarid);
         signUpEmailEditText= findViewById(R.id.signUpEmailEditTextID);
         signUpPasswordEditText=findViewById(R.id.signUpPasswordEditTextID);
         TextView signInTextView = findViewById(R.id.SignInTextViewID2);
 
-        Fullname=findViewById(R.id.fullNameIDv);
-        dateOfbirth=findViewById(R.id.dateOfBirthIDv);
-        MobileNumber=findViewById(R.id.mobileIDv);
-        userName=findViewById(R.id.userNameIDv);
+        Fullname=findViewById(R.id.fullNameID);
+        dateOfbirth=findViewById(R.id.dateOfBirthID);
+        MobileNumber=findViewById(R.id.mobileID);
+        userName=findViewById(R.id.userNameID);
 
-        radiogroup1=findViewById(R.id.genderradioidv);
-        radiogroup2=findViewById(R.id.usertyperadioidv);
+        radiogroup1=findViewById(R.id.genderradioid);
+        radiogroup2=findViewById(R.id.usertyperadioid);
+        emergencyContact1 = findViewById(R.id.emergencyContact1);
+        emergencyContact2 = findViewById(R.id.emergencyContact2);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -85,6 +89,8 @@ public class volunteerSignUP extends AppCompatActivity {
         String username=userName.getText().toString().trim();
         String email2= signUpEmailEditText.getText().toString().trim();
         String password2= signUpPasswordEditText.getText().toString().trim();
+        String eCon1 = emergencyContact1.getText().toString().trim();
+        String eCon2 = emergencyContact2.getText().toString().trim();
 
         String gender;
         String usertype;
@@ -102,14 +108,6 @@ public class volunteerSignUP extends AppCompatActivity {
         //getLatLon();
         //getLat();
         //getLon();
-        String eCon1 = "";
-        String eCon2 = "";
-
-        User user= new User(fullname,dateofbirth,mobileNumber,gender,usertype,username,email2,
-                password2,latitude,longitude,eCon1,eCon2);
-        reference.child(username).setValue(user);
-        Toast.makeText(getApplicationContext(),"Registered",Toast.LENGTH_LONG).show();
-
         if(email2.isEmpty())
         {
             signUpEmailEditText.setError("Enter an email Address");
@@ -160,6 +158,14 @@ public class volunteerSignUP extends AppCompatActivity {
             signUpPasswordEditText.requestFocus();
             return;
         }
+
+        User user= new User(fullname,dateofbirth,mobileNumber,gender,usertype,username,email2,
+                password2,latitude,longitude,eCon1,eCon2);
+        reference.child(username).setValue(user);
+
+
+
+        Toast.makeText(getApplicationContext(),"Registered",Toast.LENGTH_LONG).show();
         progressBar.setVisibility(View.VISIBLE);
         startActivity(new Intent(volunteerSignUP.this,MainActivity.class));
     }
@@ -178,7 +184,6 @@ public class volunteerSignUP extends AppCompatActivity {
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
-
         fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
             @Override
             public void onComplete(@NonNull Task<Location> task) {
@@ -189,27 +194,19 @@ public class volunteerSignUP extends AppCompatActivity {
                         List<Address> addresses = geocoder.getFromLocation(
                                 location.getLatitude(), location.getLongitude(), 1
                         );
-
-
                         String phoneNumber = "99999";
                           latitude = String.valueOf(addresses.get(0).getLatitude());
                           longitude = String.valueOf(addresses.get(0).getLongitude());
-
-
-
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }
             }
         });
-
-
     }*/
-   /* public void getLat() {
-        ActivityCompat.requestPermissions(signUpActivity.this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
-        ActivityCompat.requestPermissions(signUpActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
+    public void getLat() {
+        ActivityCompat.requestPermissions(volunteerSignUP.this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
+        ActivityCompat.requestPermissions(volunteerSignUP.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -228,7 +225,7 @@ public class volunteerSignUP extends AppCompatActivity {
                 Location location = task.getResult();
                 if(location != null) {
                     try {
-                        Geocoder geocoder = new Geocoder(signUpActivity.this, Locale.getDefault());
+                        Geocoder geocoder = new Geocoder(volunteerSignUP.this, Locale.getDefault());
                         List<Address> addresses = geocoder.getFromLocation(
                                 location.getLatitude(), location.getLongitude(), 1
                         );
@@ -250,8 +247,8 @@ public class volunteerSignUP extends AppCompatActivity {
 
     }
     public void getLon() {
-        ActivityCompat.requestPermissions(signUpActivity.this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
-        ActivityCompat.requestPermissions(signUpActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
+        ActivityCompat.requestPermissions(volunteerSignUP.this, new String[]{Manifest.permission.SEND_SMS}, PackageManager.PERMISSION_GRANTED);
+        ActivityCompat.requestPermissions(volunteerSignUP.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, PackageManager.PERMISSION_GRANTED);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -270,7 +267,7 @@ public class volunteerSignUP extends AppCompatActivity {
                 Location location = task.getResult();
                 if(location != null) {
                     try {
-                        Geocoder geocoder = new Geocoder(signUpActivity.this, Locale.getDefault());
+                        Geocoder geocoder = new Geocoder(volunteerSignUP.this, Locale.getDefault());
                         List<Address> addresses = geocoder.getFromLocation(
                                 location.getLatitude(), location.getLongitude(), 1
                         );
@@ -289,6 +286,6 @@ public class volunteerSignUP extends AppCompatActivity {
         });
 
 
-    }*/
+    }
 
 }

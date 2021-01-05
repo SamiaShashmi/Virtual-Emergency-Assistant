@@ -41,6 +41,8 @@ dependencies {
     implementation 'com.google.maps.android:android-maps-utils:0.5+'
     implementation 'com.google.firebase:firebase-auth:20.0.1'
     implementation 'org.jetbrains:annotations:15.0'
+    implementation 'com.github.User:Repo:Tag'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
