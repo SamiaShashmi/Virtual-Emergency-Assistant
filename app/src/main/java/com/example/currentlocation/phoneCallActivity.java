@@ -24,7 +24,10 @@ public class phoneCallActivity extends AppCompatActivity {
     }
     public void backActivity(View view)
     {
-        startActivity(new Intent(phoneCallActivity.this,emergencyButton.class));
+        Intent intent1 = new Intent(phoneCallActivity.this,emergencyButton.class);
+        String username = getIntent().getStringExtra("username");
+        intent1.putExtra("username",username);
+        startActivity(intent1);
     }
     public void phoneCall(View view) {
         String phoneNumber = "8801881485160";

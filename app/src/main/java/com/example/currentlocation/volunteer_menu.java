@@ -47,7 +47,7 @@ public class volunteer_menu extends AppCompatActivity implements NavigationView.
         String username = getIntent().getStringExtra("username");
         switch (item.getItemId()) {
             case R.id.volunteer_dataView:
-                Intent intent = new Intent(volunteer_menu.this, barChart.class);
+                Intent intent = new Intent(volunteer_menu.this, dvChoices.class);
                 startActivity(intent);
                 break;
             case R.id.volunteer_profile:
@@ -69,5 +69,17 @@ public class volunteer_menu extends AppCompatActivity implements NavigationView.
 
     private static void openDrawer(DrawerLayout drawLayout) {
         drawLayout.openDrawer(GravityCompat.START);
+    }
+    @Override
+    public void onBackPressed(){
+        if(drawLayout.isDrawerOpen(GravityCompat.START)){
+            drawLayout.closeDrawer(GravityCompat.START);
+        }
+        else
+        {Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
     }
 }

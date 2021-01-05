@@ -10,25 +10,24 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-public class signUpChoice extends AppCompatActivity {
+public class dvChoices extends AppCompatActivity {
 
-    RadioGroup radioGroup;
-    RadioButton radioButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up_choice);
-        Button button = findViewById(R.id.signUpButtonID);
+        setContentView(R.layout.activity_dv_choices);
+        Button button = findViewById(R.id.dvButtonID);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RadioButton user = findViewById(R.id.userradio);
-                RadioButton volunteer = findViewById(R.id.volunteerradio);
-                if (user.isChecked()){
-                    startActivity(new Intent(signUpChoice.this,signUpActivity.class));
+                RadioButton map = findViewById(R.id.mapradio);
+                RadioButton graph = findViewById(R.id.graphradio);
+                if (map.isChecked()){
+                    startActivity(new Intent(dvChoices.this,MapsActivity.class));
                 }
-                else {
-                    startActivity(new Intent(signUpChoice.this,volunteerSignUP.class));
+                else{
+                    startActivity(new Intent(dvChoices.this,barChart.class));
                 }
             }
         });

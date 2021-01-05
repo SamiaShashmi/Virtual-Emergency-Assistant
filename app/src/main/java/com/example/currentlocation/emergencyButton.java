@@ -245,7 +245,10 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
             drawLayout.closeDrawer(GravityCompat.START);
         }
         else
-        {super.onBackPressed();
+        {Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
         }
     }
 
@@ -266,7 +269,7 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
                 startActivity(intent1);
                 break;
             case R.id.dataView:
-                Intent intent3 = new Intent(emergencyButton.this,MapsActivity.class);
+                Intent intent3 = new Intent(emergencyButton.this,dvChoices.class);
                 startActivity(intent3);
                 break;
             case R.id.profile:

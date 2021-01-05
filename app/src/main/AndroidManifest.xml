@@ -19,7 +19,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CurrentLocation">
-        <activity android:name=".barChart"></activity>
+        <activity android:name=".dvChoices"></activity>
+        <activity android:name=".barChart" />
         <activity android:name=".inputCrimeInfo" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

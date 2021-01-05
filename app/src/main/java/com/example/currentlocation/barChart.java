@@ -31,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class barChart extends AppCompatActivity {
     EditText xValue,yValue;
@@ -58,12 +59,17 @@ public class barChart extends AppCompatActivity {
         InsertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
-               String id=myRef.push().getKey();
+            {
+//               String id=myRef.push().getKey();
 //               int x= Integer.parseInt(xValue.getText().toString());
 //               int y=Integer.parseInt(yValue.getText().toString());
-
+//
 //               DataPoint dataPoint = new DataPoint(x,y);
-//               myRef.child(id).setValue(dataPoint);
+//                myRef.child("crime1").setValue(new DataPoint(1, MapsActivity.uttaraCount));
+//                myRef.child("crime2").setValue(new DataPoint(2, MapsActivity.bananiCount));
+//                myRef.child("crime3").setValue(new DataPoint(3, MapsActivity.mohammadpurCount));
+//                myRef.child("crime4").setValue(new DataPoint(4, MapsActivity.dhanmondiCount));
+//                myRef.child("crime5").setValue(new DataPoint(5, MapsActivity.mirpurCount));
 
                 retrieveData();
 

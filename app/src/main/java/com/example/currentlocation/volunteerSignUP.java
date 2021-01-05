@@ -56,7 +56,7 @@ public class volunteerSignUP extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_volunteer_sign_u_p);
         progressBar = findViewById(R.id.progressBarid);
         signUpEmailEditText= findViewById(R.id.signUpEmailEditTextID);
         signUpPasswordEditText=findViewById(R.id.signUpPasswordEditTextID);

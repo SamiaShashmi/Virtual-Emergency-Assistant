@@ -22,7 +22,7 @@ public class input_message extends AppCompatActivity {
         InputMethodManager inputManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),
                 InputMethodManager.HIDE_NOT_ALWAYS);
-        String phoneNumber = "9999";
+        String phoneNumber = "88011881485160";
         EditText inmsg= findViewById(R.id.inputMessage);
         String message = inmsg.getText().toString();
         SmsManager smsManager = SmsManager.getDefault();

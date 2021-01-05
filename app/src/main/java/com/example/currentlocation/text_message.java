@@ -17,7 +17,11 @@ public class text_message extends AppCompatActivity {
     }
     public void backActivity(View view)
     {
-        startActivity(new Intent(text_message.this, emergencyButton.class));
+        Intent intent1 = new Intent(text_message.this,emergencyButton.class);
+        String username = getIntent().getStringExtra("username");
+        intent1.putExtra("username",username);
+        startActivity(intent1);
+        startActivity(intent1);
     }
     public void openInputMessage(View view)
     {
