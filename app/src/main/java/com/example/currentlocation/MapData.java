@@ -10,8 +10,8 @@ public class MapData {
     }
     public MapData()
     {
-        this.lat = "";
-        this.lon = "";
+        this.lat = "23.7453736";
+        this.lon = "90.385246099999";
     }
 
     public String getLat(){

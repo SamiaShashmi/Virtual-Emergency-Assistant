@@ -47,7 +47,7 @@ public class volunteer_menu extends AppCompatActivity implements NavigationView.
         String username = getIntent().getStringExtra("username");
         switch (item.getItemId()) {
             case R.id.volunteer_dataView:
-                Intent intent = new Intent(volunteer_menu.this, signUpActivity.class);
+                Intent intent = new Intent(volunteer_menu.this, barChart.class);
                 startActivity(intent);
                 break;
             case R.id.volunteer_profile:

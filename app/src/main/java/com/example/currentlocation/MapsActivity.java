@@ -73,22 +73,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
 
 
-       /* DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    User user = snapshot.getValue(User.class);
-                    if(user.getUsertype() == "Volunteer")
-                    {
 
-                    }
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });*/
 
 
         LatLng Uttara = new LatLng(23.866767, 90.403685);
@@ -98,7 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng Banani = new LatLng(23.7911968, 90.402110);
 
 
-        /*DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Location");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Location");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -109,27 +94,98 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng newLoc = new LatLng(latd,lond);
                     if(SphericalUtil.computeDistanceBetween(Uttara, newLoc) < 2000) {
                         uttaraCount++;
+                        mMap.addMarker(
+                                new MarkerOptions()
+                                        .position(newLoc)
+                                        .title("new place")
+                        );
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Uttara, 12f));
+                        Circle circle1 = mMap.addCircle(
+                                new CircleOptions()
+                                        .center(Uttara)
+                                        .radius(2000)
+                                        .strokeWidth(2f)
+                                        .strokeColor(Color.argb(70, 60*(uttaraCount), 250, 0))
+                                        .fillColor(Color.argb(90, 60*(uttaraCount), 250, 0))
+                        );
+                        circle1.setVisible(true);
                     }else if (SphericalUtil.computeDistanceBetween(Banani, newLoc) < 2000){
                         bananiCount++;
+                        mMap.addMarker(
+                                new MarkerOptions()
+                                        .position(newLoc)
+                                        .title("new place")
+                        );
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Banani, 12f));
+                        Circle circle1 = mMap.addCircle(
+                                new CircleOptions()
+                                        .center(Banani)
+                                        .radius(2000)
+                                        .strokeWidth(2f)
+                                        .strokeColor(Color.argb(70, 60*(bananiCount), 250, 0))
+                                        .fillColor(Color.argb(90, 60*(bananiCount), 250, 0))
+                        );
+                        circle1.setVisible(true);
                     }else if (SphericalUtil.computeDistanceBetween(Mirpur, newLoc) < 2000){
                         mirpurCount++;
+                        mMap.addMarker(
+                                new MarkerOptions()
+                                        .position(newLoc)
+                                        .title("new place")
+                        );
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Mirpur, 12f));
+                        Circle circle1 = mMap.addCircle(
+                                new CircleOptions()
+                                        .center(Mirpur)
+                                        .radius(2000)
+                                        .strokeWidth(2f)
+                                        .strokeColor(Color.argb(70, 60*(mirpurCount), 250, 0))
+                                        .fillColor(Color.argb(90, 60*(mirpurCount), 250, 0))
+                        );
+                        circle1.setVisible(true);
                     }else if (SphericalUtil.computeDistanceBetween(Mohammadpur, newLoc) < 2000){
                         mohammadpurCount++;
+                        mMap.addMarker(
+                                new MarkerOptions()
+                                        .position(newLoc)
+                                        .title("new place")
+                        );
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Mohammadpur, 12f));
+                        Circle circle1 = mMap.addCircle(
+                                new CircleOptions()
+                                        .center(Mohammadpur)
+                                        .radius(2000)
+                                        .strokeWidth(2f)
+                                        .strokeColor(Color.argb(70, 60*(mohammadpurCount), 250, 0))
+                                        .fillColor(Color.argb(90, 60*(mohammadpurCount), 250, 0))
+                        );
+                        circle1.setVisible(true);
                     }
                     else if (SphericalUtil.computeDistanceBetween(Dhanmondi, newLoc) < 2000){
                         dhanmondiCount++;
+                        mMap.addMarker(
+                                new MarkerOptions()
+                                        .position(newLoc)
+                                        .title("new place")
+                        );
+                        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(Dhanmondi, 12f));
+                        Circle circle1 = mMap.addCircle(
+                                new CircleOptions()
+                                        .center(Dhanmondi)
+                                        .radius(2000)
+                                        .strokeWidth(2f)
+                                        .strokeColor(Color.argb(70, 60*(dhanmondiCount), 250, 0))
+                                        .fillColor(Color.argb(90, 60*(dhanmondiCount), 250, 0))
+                        );
+                        circle1.setVisible(true);
                     }
-                    mMap.addMarker(
-                            new MarkerOptions()
-                                    .position(newLoc)
-                                    .title("new place")
-                    );
+
                 }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
-        });*/
+        });
         LatLng NewPlace[] = new LatLng[3];
         NewPlace[0] = new LatLng(23.8637, 90.4028);
         NewPlace[1] = new LatLng(23.8732, 90.4089);

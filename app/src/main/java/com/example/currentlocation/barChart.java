@@ -44,7 +44,7 @@ public class barChart extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bar_chart;
+        setContentView(R.layout.activity_bar_chart);
 //        xValue=findViewById(R.id.xco);
 //        yValue=findViewById(R.id.yco);
         InsertBtn=findViewById(R.id.button2);

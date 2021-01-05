@@ -123,11 +123,11 @@ public class emergencyButton extends AppCompatActivity implements NavigationView
 
                         }
                     }
-                });
+                });*/
 
 
-                MapData mapData = new MapData(latitude, longitude);
-                reference.child(latitude).setValue(mapData);*/
+                /*MapData mapData = new MapData("23.7453736", "90.38524609999");
+                reference.child("dhanmondi").setValue(mapData);*/
 
                 getLocation();
             }
