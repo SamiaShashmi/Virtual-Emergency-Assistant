@@ -58,7 +58,7 @@ public class barChart extends AppCompatActivity {
         InsertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
-ma               String id=myRef.push().getKey();
+               String id=myRef.push().getKey();
 //               int x= Integer.parseInt(xValue.getText().toString());
 //               int y=Integer.parseInt(yValue.getText().toString());
 
